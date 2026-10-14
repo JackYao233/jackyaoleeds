@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title> Jack Yao's Website </title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <a class="logo-link" href="index.html" aria-label="Home">
+      <img class="site-logo" src="images/Logo.png" alt="Jack Yao logo" width="56" height="56" />
+    </a>
+    <h1>Jack Yao ‘s Website</h1>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+  </div>
+  <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+    <a href="about.html">About Me</a>
+    <a href="reflections.html">Weekly Reflections</a>
+    <a href="photography.html">Photography</a>
+  </nav>
+</header>
+<main>
+  <section class="about-section" id="about">
+    <img class="profile-avatar" src="images/avatar.png" alt="Illustrated portrait of Jack Yao" width="122" height="122" />
+    <div>
+      <h2>About Me</h2>
+      <p>Hello, I'm Jack Yao(Junwei Yao). I'm currently studying for a master's degree in Digital Media at the University of Leeds. My undergraduate background is in Internet and New Media, and my interests include computers, design, photography, and video editing.</p>
+      <p>This portfolio introduces me and brings together my weekly learning reflections and photography.</p>
+      <p><a href="about.html">Read more about me →</a></p>
+    </div>
+  </section>
+  <section id="reflections">
+    <h2>Weekly Reflections</h2>
+    <p>My weekly workshop reflections and connections to the course readings.</p>
+    <p><a href="reflections.html">Read my weekly reflections →</a></p>
+  </section>
+  <section id="photography">
+    <h2>Photography</h2>
+    <div class="photography-preview">
+      <a class="photo-link" href="photography.html" aria-label="View my photography gallery">
+        <img src="images/photography-bird.jpg" alt="A bird flying across a blue sky above a ship's mast" width="6000" height="4000" loading="lazy" />
+      </a>
+      <div>
+        <p>A selection of photographs from everyday life, with camera, lens and exposure details.</p>
+        <p><a href="photography.html">View my photography →</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <span>Styles adapted from Future Imperfect by <a href="https://html5up.net">HTML5 UP</a>, used under the <a href="https://html5up.net/license">Creative Commons Attribution 3.0 license</a>.</span>
+</footer>
+<script>
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.site-nav');
+
+  function setMenuOpen(open) {
+    header.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  }
+
+  menuButton.addEventListener('click', function () {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navigation.addEventListener('click', function (event) {
+    if (event.target.closest('a')) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      menuButton.focus();
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!header.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  window.matchMedia('(max-width: 768px)').addEventListener('change', function () {
+    setMenuOpen(false);
+  });
+</script>
+</body>
+</html>

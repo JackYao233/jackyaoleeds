@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photography — Jack Yao's Website</title>
+<meta name="description" content="Photography by Jack Yao, with camera, lens and exposure details." />
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <a class="logo-link" href="index.html" aria-label="Home">
+      <img class="site-logo" src="images/Logo.png" alt="Jack Yao logo" width="56" height="56" />
+    </a>
+    <h1>Jack Yao ‘s Website</h1>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+  </div>
+  <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="reflections.html">Weekly Reflections</a>
+    <a href="photography.html" aria-current="page">Photography</a>
+  </nav>
+</header>
+<main>
+  <p><a href="index.html">← Back to home</a></p>
+  <section id="photography">
+    <h2>Photography</h2>
+    <p>A selection of my photographs. Click a photograph to view the full image.</p>
+    <div class="photo-grid">
+      <figure>
+        <a class="photo-link" href="images/photography-bird.jpg">
+          <img src="images/photography-bird.jpg" alt="A bird flying across a blue sky above a ship's mast" width="6000" height="4000" loading="lazy" />
+        </a>
+        <figcaption>
+          Camera: Sony A5100<br />
+          Lens: Sony E 55–210mm F4.5–6.3 OSS<br />
+          1/1250s · f/6.3 · ISO 400 · 210mm
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="photo-link" href="images/photography-roof.jpg">
+          <img src="images/photography-roof.jpg" alt="Decorated traditional roof seen from below against a blue sky" width="4000" height="6000" loading="lazy" />
+        </a>
+        <figcaption>
+          Camera: Sony A5100<br />
+          Lens: Sony E PZ 16–50mm F3.5–5.6 OSS<br />
+          1/200s · f/14 · ISO 100 · 35mm
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="photo-link" href="images/photography-rainbow.jpg">
+          <img src="images/photography-rainbow.jpg" alt="A rainbow in a pink evening sky above rooftops and trees" width="4000" height="6000" loading="lazy" />
+        </a>
+        <figcaption>
+          Camera: Panasonic DC-S5M2X<br />
+          Lens: LUMIX S 70–300mm F4.5–5.6<br />
+          1/40s · f/4.5 · ISO 800 · 70mm
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="photo-link" href="images/photography-moon.png">
+          <img src="images/photography-moon.png" alt="An orange moon during a lunar eclipse against a dark sky" width="6000" height="4000" loading="lazy" />
+        </a>
+        <figcaption>
+          Camera: Panasonic DC-S5M2X<br />
+          Lens: LUMIX S 70–300mm F4.5–5.6<br />
+          1/2s · f/6.3 · ISO 4000 · 300mm (cropped)
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <span>Styles adapted from Future Imperfect by <a href="https://html5up.net">HTML5 UP</a>, used under the <a href="https://html5up.net/license">Creative Commons Attribution 3.0 license</a>.</span>
+</footer>
+<script>
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.site-nav');
+
+  function setMenuOpen(open) {
+    header.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  }
+
+  menuButton.addEventListener('click', function () {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navigation.addEventListener('click', function (event) {
+    if (event.target.closest('a')) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      menuButton.focus();
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!header.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  window.matchMedia('(max-width: 768px)').addEventListener('change', function () {
+    setMenuOpen(false);
+  });
+</script>
+</body>
+</html>

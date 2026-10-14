@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 2 Reflection — Jack Yao's Website</title>
+<meta name="description" content="Jack Yao's Week 2 reflection on creating a portfolio website and understanding the Internet." />
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <a class="logo-link" href="index.html" aria-label="Home">
+      <img class="site-logo" src="images/Logo.png" alt="Jack Yao logo" width="56" height="56" />
+    </a>
+    <h1>Jack Yao ‘s Website</h1>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+  </div>
+  <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="reflections.html" aria-current="page">Weekly Reflections</a>
+    <a href="photography.html">Photography</a>
+  </nav>
+</header>
+<main>
+  <p><a href="reflections.html">← Back to Weekly Reflections</a></p>
+  <article>
+    <h2>Week 2: Creating My Portfolio Website</h2>
+    <p>This week, I learned the basics of HTML and CSS and started creating my own personal website. I had studied web design during my undergraduate degree, when I mainly used Dreamweaver to build webpages. This task helped me refresh my web design skills and made me think about how the structure and format of a webpage can affect the way content is presented.</p>
+    <p>I think a personal website is a good way to share my interests, ideas and work. Organising its content also gives me an opportunity to reflect on myself. Sometimes, I only have a vague idea of what I want to express. When I need to write these ideas down and organise them into different sections, I start thinking about what matters to me and how these things connect. Through this process, my ideas gradually become clearer.</p>
+    <p>Compared with social media platforms, a personal website gives me more choice in how I express myself. Many social media platforms have a distinctive or dominant media format. For example, long-form landscape videos are common on YouTube, while TikTok places more emphasis on short portrait videos. Platforms organise user interactions through their interfaces and rules, so their design also influences how we express ourselves. On my own website, I can combine text, images and videos in ways that best communicate my ideas.</p>
+    <p>I am looking forward to next week's web scraping workshop. I have heard about web scraping many times before, but this will be my first opportunity to try it myself. I hope to learn more about it during the workshop.</p>
+  </article>
+</main>
+<footer class="site-footer">
+  <span>Styles adapted from Future Imperfect by <a href="https://html5up.net">HTML5 UP</a>, used under the <a href="https://html5up.net/license">Creative Commons Attribution 3.0 license</a>.</span>
+</footer>
+<script>
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.site-nav');
+
+  function setMenuOpen(open) {
+    header.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  }
+
+  menuButton.addEventListener('click', function () {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navigation.addEventListener('click', function (event) {
+    if (event.target.closest('a')) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      menuButton.focus();
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!header.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  window.matchMedia('(max-width: 768px)').addEventListener('change', function () {
+    setMenuOpen(false);
+  });
+</script>
+</body>
+</html>

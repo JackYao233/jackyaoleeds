@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Me — Jack Yao's Website</title>
+<meta name="description" content="Jack Yao's education, interests, creative work and personal video channel." />
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <a class="logo-link" href="index.html" aria-label="Home">
+      <img class="site-logo" src="images/Logo.png" alt="Jack Yao logo" width="56" height="56" />
+    </a>
+    <h1>Jack Yao ‘s Website</h1>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+  </div>
+  <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About Me</a>
+    <a href="reflections.html">Weekly Reflections</a>
+    <a href="photography.html">Photography</a>
+  </nav>
+</header>
+<main>
+  <p><a href="index.html">← Back to home</a></p>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello, I'm Jack Yao (Junwei Yao). I'm currently studying for a master's degree in Digital Media at the University of Leeds.</p>
+  </section>
+  <section>
+    <h2>My Education</h2>
+    <p>My undergraduate studies were in Internet And New Media at Beijing Information Science and Technology University, in the College of Communication Arts and Sciences.</p>
+    <p>I'm now studying Digital Media at the University of Leeds. This website is a place to record my weekly workshop reflections.</p>
+  </section>
+  <section>
+    <h2>My Interests</h2>
+    <p>I'm interested in computer hardware, operating systems, design, photography, video editing, and music production.</p>
+  </section>
+  <section>
+    <h2>My Personal Channel</h2>
+    <p>My interest in making videos began in 2018. Under the name “杰克姚” (Jack Yao), I've made videos about operating systems, computer viruses, system customisation, and practical computer tips.</p>
+    <p><a href="https://space.bilibili.com/101168809">Bilibili</a> · <a href="https://www.youtube.com/@jackyao233/">YouTube</a></p>
+  </section>
+</main>
+<footer class="site-footer">
+  <span>Styles adapted from Future Imperfect by <a href="https://html5up.net">HTML5 UP</a>, used under the <a href="https://html5up.net/license">Creative Commons Attribution 3.0 license</a>.</span>
+</footer>
+<script>
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.site-nav');
+
+  function setMenuOpen(open) {
+    header.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  }
+
+  menuButton.addEventListener('click', function () {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navigation.addEventListener('click', function (event) {
+    if (event.target.closest('a')) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      menuButton.focus();
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!header.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  window.matchMedia('(max-width: 768px)').addEventListener('change', function () {
+    setMenuOpen(false);
+  });
+</script>
+</body>
+</html>
