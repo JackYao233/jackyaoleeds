@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900");
 
+/*
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -3566,14 +3572,14 @@ html {
 }
 
 body {
-  max-width: 1120px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: calc(var(--header-height) + 48px) 40px 48px;
+  padding: calc(var(--header-height) + 24px) 24px 40px;
   color: #646464;
-  background: #f4f4f4;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  background: white;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.6;
 }
 
 .site-header {
@@ -3591,7 +3597,7 @@ body {
   grid-template-columns: 56px minmax(0, 1fr) 56px;
   align-items: center;
   gap: 16px;
-  max-width: 1120px;
+  max-width: 1000px;
   height: 88px;
   margin: 0 auto;
   padding: 12px 24px;
@@ -3610,9 +3616,8 @@ body {
   margin: 0;
   text-align: center;
   font-size: clamp(16px, 4vw, 26px);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 900;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 .logo-link {
@@ -3625,7 +3630,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 28px;
   min-height: 52px;
   padding: 12px 24px;
   border-top: 1px solid #dedede;
@@ -3633,15 +3638,7 @@ body {
 
 .site-nav a {
   border: 0;
-  padding: 0 24px;
-  font-family: "Raleway", Helvetica, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.site-nav a + a {
-  border-left: 1px solid #dedede;
+  font-size: 14px;
 }
 
 .site-nav a:hover { text-decoration: underline; }
@@ -3664,11 +3661,10 @@ body {
 
 h1, h2, h3 {
   color: #3c3b3b;
-  font-family: "Raleway", Helvetica, sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  line-height: 1.65;
-  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-transform: none;
   overflow-wrap: anywhere;
 }
 
@@ -3678,15 +3674,15 @@ h1 {
 }
 
 h2 {
-  font-size: 1.35em;
-  margin: 0 0 28px;
-  padding-bottom: 24px;
+  font-size: 1.4em;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
   border-bottom: 1px solid #dedede;
 }
 
 h3 {
-  font-size: 1.05em;
-  margin: 0 0 20px;
+  font-size: 1.1em;
+  margin: 24px 0 12px;
 }
 
 p {
@@ -3700,7 +3696,7 @@ a {
 }
 
 a:hover {
-  color: #2ebaae;
+  color: #247e92;
   border-bottom-color: transparent;
 }
 
@@ -3749,36 +3745,10 @@ a:focus-visible {
   font-size: 14px;
 }
 
-main > section, main > article {
-  margin-bottom: 32px;
-  padding: 36px;
-  border: 1px solid #dedede;
-  background: #fff;
-}
-
-main > article > p:last-child {
-  margin-bottom: 0;
-}
-
-main > article > p:last-child > a,
-#reflections > p:last-child > a,
-.about-section > div > p:last-child > a,
-.photography-preview > div > p:last-child > a {
-  display: inline-block;
-  padding: 12px 20px;
-  border: 1px solid #dedede;
-  font-family: "Raleway", Helvetica, sans-serif;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-main > article > p:last-child > a:hover,
-#reflections > p:last-child > a:hover,
-.about-section > div > p:last-child > a:hover,
-.photography-preview > div > p:last-child > a:hover {
-  border-color: #2ebaae;
+section, article {
+  margin-bottom: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #dedede;
 }
 
 section > p:last-child { margin-bottom: 0; }
@@ -3806,7 +3776,7 @@ section > p:last-child { margin-bottom: 0; }
   width: 100%;
   height: auto;
 }
-.photo-grid figcaption { margin-top: 16px; padding-top: 12px; border-top: 1px solid #dedede; font-size: 13px; }
+.photo-grid figcaption { margin-top: 12px; font-size: 12px; }
 
 .channel-branding { max-width: 640px; margin: 24px 0; }
 .channel-branding img { display: block; width: 100%; height: auto; }
@@ -3843,8 +3813,7 @@ section > p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
   gap: 12px;
   padding-top: 12px;
-  font-size: 11px;
-  color: #808080;
+  font-size: 12px;
 }
 
 blockquote {
@@ -3882,8 +3851,7 @@ img {
     padding: 8px 16px;
   }
   .site-header.menu-open .site-nav { display: flex; }
-  .site-nav a { padding: 14px 8px; }
-  .site-nav a + a { border-left: 0; border-top: 1px solid #dedede; }
+  .site-nav a { padding: 12px 8px; }
   .site-header h1 { font-size: clamp(14px, 3.5vw, 24px); }
 }
 
@@ -3901,12 +3869,9 @@ img {
     font-size: 1.6em;
   }
 
-  main > section, main > article {
-    padding: 24px 20px;
-    margin-bottom: 24px;
+  section, article {
+    padding: 16px 0;
   }
-
-  h2 { font-size: 1.15em; }
 
   .about-section, .photo-grid, .photography-preview, .music-preview { grid-template-columns: 1fr; }
   .about-section { gap: 20px; }
@@ -3930,9 +3895,59 @@ img {
 .menu-toggle:hover,
 .menu-toggle:active {
   box-shadow: none;
-  color: #2ebaae !important;
+  color: #247e92 !important;
 }
 
 .banner-caption strong {
   color: inherit;
+}
+
+.reflection-screenshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 28px 0 36px;
+}
+
+.reflection-screenshots figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.reflection-screenshots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #dedede;
+}
+
+.reflection-screenshots figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .reflection-screenshots {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reflection-dashboard {
+  width: 100%;
+  max-width: 360px;
+  margin: 28px auto 36px;
+}
+
+.reflection-dashboard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #dedede;
+}
+
+.reflection-dashboard figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.6;
 }
