@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 4 Reflection — Jack Yao's Website</title>
+<meta name="description" content="Jack Yao's Week 4 reflection on imagining, collecting and classifying data." />
+<link href="style.css?v=20261029-1" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <a class="logo-link" href="index.html" aria-label="Home">
+      <img class="site-logo" src="images/Logo.png" alt="Jack Yao logo" width="56" height="56" />
+    </a>
+    <h1>Jack Yao ‘s Website</h1>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+  </div>
+  <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="reflections.html" aria-current="page">Weekly Reflections</a>
+    <a href="photography.html">Photography</a>
+  </nav>
+</header>
+<main>
+  <p><a href="reflections.html">← Back to Weekly Reflections</a></p>
+  <article>
+    <h2>Week 4: Data Practices</h2>
+    <p>In this week's group activity, I collected social media posts and comments about using AI to polish writing, to explore people's attitudes towards it. After doing this, I realised that collecting content was only the first step. I still needed to filter, organise and classify it to understand what it expressed.</p>
+    <p>At first, I spent a long time thinking about the categories. I kept feeling that the ones I had thought of were not comprehensive enough and might miss something. Discussing this with my group helped us find a clearer direction. I learned that instead of trying to create categories that cover everything from the start, we could begin with a general plan and adjust it as we looked at the material.</p>
+    <p>I wrote a web scraper to collect the content, but the results included promotional posts, off-topic replies and other material that had little to do with our question. I therefore needed to filter the results myself. I had expected the program to make things easier, but it mainly saved time on collecting the content. I still had to read and understand it to decide whether it was useful. Other group members might also see value in something I considered irrelevant, so we needed to try to apply consistent selection criteria.</p>
+    <div class="reflection-screenshots reflection-screenshots--row" tabindex="0" role="group" aria-label="Workshop screenshots">
+      <figure>
+        <a class="photo-link" href="images/week4/collection-script.png" aria-label="View full-size screenshot: Running the Python scraper. The terminal reports 840 collected comments, rather than 840 unique people.">
+          <img src="images/week4/collection-script.png" alt="Running the Python scraper. The terminal reports 840 collected comments, rather than 840 unique people." width="2880" height="1800" loading="lazy" />
+        </a>
+        <figcaption>Running the Python scraper. The terminal reports 840 collected comments, rather than 840 unique people.</figcaption>
+      </figure>
+      <figure>
+        <a class="photo-link" href="images/week4/collection-summary.png" aria-label="View full-size screenshot: Collection totals from four sources on Bilibili, Baidu Tieba and Reddit, before manual screening.">
+          <img src="images/week4/collection-summary.png" alt="Collection totals from four sources on Bilibili, Baidu Tieba and Reddit, before manual screening." width="2880" height="1800" loading="lazy" />
+        </a>
+        <figcaption>Collection totals from four sources on Bilibili, Baidu Tieba and Reddit, before manual screening.</figcaption>
+      </figure>
+      <figure>
+        <a class="photo-link" href="images/week4/comment-table.png" aria-label="View full-size screenshot: Collected comments organised in a table with sample IDs instead of usernames. The material still requires screening and classification.">
+          <img src="images/week4/comment-table.png" alt="Collected comments organised in a table with sample IDs instead of usernames. The material still requires screening and classification." width="2880" height="1800" loading="lazy" />
+        </a>
+        <figcaption>Collected comments organised in a table with sample IDs instead of usernames. The material still requires screening and classification.</figcaption>
+      </figure>
+    </div>
+    <p>When classifying the material, I found that some entries covered several themes and were difficult to put into just one category. We therefore allowed multiple categories for each entry. This reminded me of the discussion about rethinking classification in What Gets Counted Counts (D’Ignazio and Klein, 2020). If something does not fit into our categories, the categories themselves may need to change, rather than forcing the content to fit.</p>
+    <p>This activity also helped me understand the lecture's point that data is not neutral. What we collect, what we remove and how we classify it all affect the results we see. Previously, I paid more attention to how much data I had collected. Now I also think about how that data was produced and whether our approach leaves out different voices.</p>
+  </article>
+</main>
+<footer class="site-footer">
+  <span>Styles adapted from Future Imperfect by <a href="https://html5up.net">HTML5 UP</a>, used under the <a href="https://html5up.net/license">Creative Commons Attribution 3.0 license</a>.</span>
+</footer>
+<script>
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.site-nav');
+
+  function setMenuOpen(open) {
+    header.classList.toggle('menu-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+  }
+
+  menuButton.addEventListener('click', function () {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navigation.addEventListener('click', function (event) {
+    if (event.target.closest('a')) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) {
+      setMenuOpen(false);
+      menuButton.focus();
+    }
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!header.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  window.matchMedia('(max-width: 768px)').addEventListener('change', function () {
+    setMenuOpen(false);
+  });
+</script>
+</body>
+</html>
