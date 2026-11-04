@@ -4015,3 +4015,8 @@ img {
   overflow-x: auto;
   padding-bottom: 8px;
 }
+
+.reflection-screenshots--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 380px;
+}
