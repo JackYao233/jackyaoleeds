@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Week 3 Reflection — Jack Yao's Website</title>
 <meta name="description" content="Jack Yao's Week 3 reflection on scraping Bilibili video data, practical challenges and ethical considerations." />
-<link href="style.css?v=20261021-3" rel="stylesheet" type="text/css" />
+<script src="theme.js?v=20261113-1"></script>
+<link href="style.css?v=20261113-1" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <header class="site-header">
@@ -14,7 +15,14 @@
       <img class="site-logo" src="images/Logo.png" alt="Jack Yao logo" width="56" height="56" />
     </a>
     <h1>Jack Yao ‘s Website</h1>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+    <div class="header-actions">
+      <select class="theme-select" id="theme-select" aria-label="Color theme: Auto follows your device" title="Color theme">
+        <option value="system">Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+    </div>
   </div>
   <nav class="site-nav" id="site-navigation" aria-label="Main navigation">
     <a href="index.html">Home</a>
